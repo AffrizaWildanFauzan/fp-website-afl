@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #d9e6c3 0%, #bddb8a 100%);
+  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 20px 16px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  max-width: 450px;
+  width: 100%;
+  background: #FEFAE0;
+  border-radius: 40px;
+  box-shadow: 0 20px 40px rgba(0, 32, 0, 0.25);
+  overflow: hidden;
+}
+
+.brand-header {
+  background: #2C5F2D;
+  padding: 24px 24px 20px;
+  color: white;
+}
+
+.brand-header h1 {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-header h1 i {
+  background: #97BC62;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.brand-header p {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+.main-content {
+  padding: 20px;
+  background: #FFFDF5;
+}
+
+/* 3 Tombol Tab: Beranda, Penukaran, Leaderboard */
+.menu-tabs {
+  display: flex;
+  gap: 10px;
+  background: #FFF1CF;
+  padding: 6px;
+  border-radius: 60px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #3b5c2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: #2C5F2D;
+  color: white;
+  box-shadow: 0 4px 10px rgba(44, 95, 45, 0.3);
+}
+
+/* Panel - hanya satu yang tampil */
+.panel {
+  display: none;
+}
+
+.panel.active-panel {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 28px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E9E5C2;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #2C5F2D;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A6741;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 1.5px solid #D9D2A8;
+  background: #FEFCF0;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #2C5F2D;
+  outline: none;
+}
+
+.btn-primary {
+  background: #2C5F2D;
+  width: 100%;
+  border: none;
+  padding: 14px;
+  border-radius: 40px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: #1E451F;
+  transform: scale(0.98);
+}
+
+.total-points-card {
+  background: #2C5F2D;
+  color: white;
+  border-radius: 28px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.points-big {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.history-item {
+  background: #F5F3E3;
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  font-weight: 700;
+  color: #2C5F2D;
+}
+
+.item-points {
+  background: #97BC62;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* Leaderboard */
+.leader-header, .leader-row {
+  display: grid;
+  grid-template-columns: 70px 1.5fr 70px;  /* Lebih lebar, fleksibel */
+  padding: 12px 12px;
+  gap: 8px;  /* Tambah jarak antar kolom */
+}
+
+.rank {
+  font-weight: 800;
+  color: #5f7e3a;
+  white-space: nowrap;  /* Mencegah teks peringkat turun ke bawah */
+}
+
+.user-name {
+  font-weight: 600;
+  overflow: hidden;      /* Jika terlalu panjang, disembunyikan */
+  text-overflow: ellipsis;  /* Tambah ... jika kepanjangan */
+  white-space: nowrap;
+}
+
+.user-points {
+  font-weight: 800;
+  color: #2C5F2D;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.leader-header {
+  background: #E9F0DA;
+  font-weight: 800;
+  color: #2C5F2D;
+  border-radius: 20px 20px 0 0;
+}
+
+.leader-row {
+  border-bottom: 1px solid #EAE5C6;
+}
+
+.leader-row:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  font-weight: 800;
+  color: #5f7e3a;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-points {
+  font-weight: 800;
+  color: #2C5F2D;
+  text-align: right;
+}
+
+/* Voucher */
+.voucher-item {
+  background: #F9F6E3;
+  border-radius: 20px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;  /* Pisah kiri dan kanan */
+  align-items: center;             /* Sejajar vertikal tengah */
+  gap: 12px;
+  flex-wrap: wrap;                 /* Jika HP kecil, turun ke bawah */
+}
+
+.voucher-item > div:first-child {
+  flex: 1;  /* Nama voucher memenuhi ruang */
+}
+
+.voucher-cost {
+  font-weight: 800;
+  color: #2C5F2D;
+  white-space: nowrap;
+}
+
+.btn-voucher {
+  background: #97BC62;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.voucher-item:last-child {
+  margin-bottom: 0;
+}
+
+.voucher-cost {
+  font-weight: 800;
+  color: #2C5F2D;
+}
+
+.btn-voucher {
+  background: #97BC62;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+
+.btn-voucher:hover {
+  background: #7ca34e;
+  transform: scale(0.96);
+}
+
+.footnote {
+  font-size: 11px;
+  text-align: center;
+  color: #8f9a6e;
+  margin-top: 16px;
+}
